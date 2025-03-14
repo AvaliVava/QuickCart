@@ -15,9 +15,11 @@
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-hot-toast": "^2.5.1"
+    "react-hot-toast": "^2.5.1",
+    "serialize-error-cjs": "^0.2.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.26.10",
     "@eslint/eslintrc": "^3",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",

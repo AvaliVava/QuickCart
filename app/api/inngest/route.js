@@ -4,7 +4,7 @@ import { inngest, syncUserCreation, syncUserDeletion, syncUserUpdation } from "@
 // Create an API that serves zero functions
 export const { GET, POST, PUT } = serve({
   client: inngest,
-   function: [
+   functions: [
 syncUserCreation,
 syncUserUpdation,
 syncUserDeletion
