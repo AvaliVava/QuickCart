@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 
 const AddProduct = () => {
 
-const { getToken } = useAppContext();
+const { getToken } = useAppContext()
 
   const [files, setFiles] = useState([]);
   const [name, setName] = useState('');
@@ -33,7 +33,7 @@ const { getToken } = useAppContext();
     }
     
     try {
-      const token = await getToken();
+      const token = await getToken()
     
       const { data } = await axios.post('/api/product/add', formData, { headers: { Authorization: `Bearer ${token}` } })
     

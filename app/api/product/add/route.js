@@ -40,7 +40,7 @@ cloudinary.config({
       const result = await Promise.all(
         files.map(async (file) => {
           const arrayBuffer = await file.arrayBuffer()
-          const buffer = Buffer.from(arrayBuffer)
+          const bufferData = Buffer.from(arrayBuffer)
       
           return new Promise((resolve, reject) => {
             const stream = cloudinary.uploader.upload_stream(
@@ -53,26 +53,26 @@ cloudinary.config({
               }
               }
             )
-           stream.end(buffer)
+           stream.end(bufferData)
           })
         })
       )
 
 const image = result.map(result => result.secure_url)
 
+await connectDB()
+const newProduct = await Product.create({
+userId,
+name,
+description,
+category,
+price:Number(price),
+offerPrice:Number(offerPrice),
+image,
+date: Date.now(),
+data: Date.now()
 
-           await connectDB()
-           const newProduct = await Product.create({
-            userId,
-            name,
-            description,
-            category,
-            price:Number(price),
-            offerPrice:Number(offerPrice),
-            image,
-            date: Date.now()
-
-})
+});
 
 return NextResponse.json({ success: true, message: 'Upload successful', newProduct });
     } catch (error) {
